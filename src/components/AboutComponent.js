@@ -2,25 +2,28 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
+import { Loading } from './LoadingComponent';
 
-function PartnerList ({props}) {
-    const partners = props.partners.partners.map{(partner) 
-        => {
-        return(
+const PartnerList = (props) => {
+    const partners = props.partners.partners.map((partner) => {
+        return (
             <Media tag="li" key={partner.id}>
             <RenderPartner partner={partner} />
             </Media> 
         );
     });
+
     if (props.partners.isLoading) { 
-        return <Loading />;
+        return (<Loading />);
     }
     if (props.partners.errMess) {
-        return <h4>{(props.partners.loading, props.partners.errMess)}</h4>
+        return (<h4>{(props.partners.loading, props.partners.errMess)}</h4>);
     }
+    return ( 
     <div className="col mt-4">
         <Media list>{partners}</Media>
     </div>
+    );
     }
 
 function RenderPartner ({partner}) {

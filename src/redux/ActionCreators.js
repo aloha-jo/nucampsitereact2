@@ -95,7 +95,7 @@ export const fetchComments = () => dispatch => {
             }
         )
         .then(response => response.json())
-        .then(comments => dispatch(addComments(comments)))
+        .then(comments => dispatch(addComment(comments)))
         .catch(error => dispatch(commentsFailed(error.message)));
 };
 
@@ -109,10 +109,6 @@ export const addComment = comment => ({
     payload: comment
 });
 
-export const addComment = comment => ({
-    type: ActionTypes.ADD_COMMENT,
-    payload: comment
-});
 
 //Promotions:
 
@@ -175,7 +171,7 @@ export const fetchPartners = () => dispatch => {
         )
         .then(response => response.json())
         .then(partners => dispatch(addPartners(partners)))
-        .catch(error => dispatch(parntersFailed(error.message)));
+        .catch(error => dispatch(partnersFailed(error.message)));
 };
 
 export const partnersLoading = () => ({

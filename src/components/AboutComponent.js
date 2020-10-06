@@ -14,10 +14,10 @@ const PartnerList = (props) => {
     });
 
     if (props.partners.isLoading) { 
-        return (<Loading />);
+        return <Loading />;
     }
     if (props.partners.errMess) {
-        return (<h4>{(props.partners.loading, props.partners.errMess)}</h4>);
+        return <h4>{(props.partners.loading, props.partners.errMess)}</h4>;
     }
     return ( 
     <div className="col mt-4">
@@ -26,7 +26,7 @@ const PartnerList = (props) => {
     );
     }
 
-function RenderPartner ({partner}) {
+function RenderPartner ({ partner }) {
     if (partner){
         return(
             <React.Fragment>
@@ -40,9 +40,9 @@ function RenderPartner ({partner}) {
     return <div />;
 }
 
-function About(props) {
+function About (props) {
 
-    const partners = props.partners.map(partner => {
+    const partners = props.partners.partners.map((partner) => {
         return (
          <Media tag="li" key={partner.id}>
             <RenderPartner partner={partner} />
